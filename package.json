@@ -1,0 +1,38 @@
+{
+    "private": true,
+    "scripts": {
+        "dev": "cross-env NODE_ENV=dev npm run routes && webpack-dev-server --hot --progress --port 8086 --inline",
+        "build-dev": "npm run route&&cross-env NODE_ENV=dev node build/build.js",
+        "build-test": "npm run route&&cross-env NODE_ENV=test node build/build.js",
+        "build-demo": "npm run route&&cross-env NODE_ENV=demo node build/build.js",
+        "build-production": "npm run route&&cross-env NODE_ENV=production node build/build.js",
+        "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
+        "e2e": "node test/e2e/runner.js",
+        "test": "npm run route&&cross-env NODE_ENV=test npm run unit",
+        "route": "node generate-routes.js",
+        "easymock init": "node .easy-mock",
+        "build-preview": "cd dist&&http-server",
+       
+        "development": "mix",
+        "build": "cross-env NODE_ENV=production OTHERFLAG=myValue webpack --config build/webpack.config.js",
+        "watch": "mix watch",
+        "watch-poll": "mix watch -- --watch-options-poll=1000",
+        "hot": "mix watch --hot",
+        "prod": "npm run production",
+        "production": "mix --production"
+    },
+    "devDependencies": {
+        "axios": "^0.21",
+        "bootstrap": "^4.6.0",
+        "jquery": "^3.6",
+        "laravel-mix": "^6.0.6",
+        "lodash": "^4.17.19",
+        "popper.js": "^1.16.1",
+        "postcss": "^8.1.14",
+        "resolve-url-loader": "^3.1.2",
+        "sass": "^1.32.11",
+        "sass-loader": "^11.0.1",
+        "vue": "^2.6.12",
+        "vue-template-compiler": "^2.6.12"
+    }
+}
